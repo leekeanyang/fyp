@@ -1,0 +1,9 @@
+{
+  "transport_modes": [
+    "Car (petrol, single rider)",
+    "Bus",
+    "Train",
+    "Domestic flight",
+    "International flight"
+  ]
+}

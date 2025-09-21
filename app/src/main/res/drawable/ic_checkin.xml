@@ -1,0 +1,12 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="@android:color/white">
+
+    <!-- Location pin with check -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M12,2C8.1,2 5,5.1 5,9c0,5.3 7,13 7,13s7,-7.7 7,-13c0,-3.9 -3.1,-7 -7,-7zm-1,10l-3,-3 1.4,-1.4L11,9.2l3.6,-3.6L16,7l-5,5z"/>
+</vector>

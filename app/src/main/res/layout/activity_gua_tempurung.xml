@@ -1,0 +1,194 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Hero Image with Overlay -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/gua_tempurung" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_overlay" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gua Tempurung"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="16dp"/>
+        </RelativeLayout>
+
+        <!-- Main Description -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Gua Tempurung in Perak is one of the largest limestone caves in Peninsular Malaysia. With over 3 km of tunnels, it offers stunning stalactites, stalagmites, and underground rivers."
+                android:textSize="16sp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="#444" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Collapsible Section: Highlights -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/highlightsTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="✨ Highlights"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#1565C0" />
+
+                <TextView
+                    android:id="@+id/highlightsContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="• Stunning limestone formations\n• Underground rivers and chambers\n• Echoing caverns with natural acoustics"
+                    android:textSize="15sp"
+                    android:textColor="#333"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Collapsible Section: Tours -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/toursTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="🗺️ Cave Tours"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#1565C0" />
+
+                <TextView
+                    android:id="@+id/toursContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="• Dry tours (1–1.5 hours)\n• Wet tours with underground river trekking (2–3 hours)\n• Adventure tours (up to 4 hours)"
+                    android:textSize="15sp"
+                    android:textColor="#333"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Collapsible Section: Tips -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tipsTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="💡 Visitor Tips"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#1565C0" />
+
+                <TextView
+                    android:id="@+id/tipsContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="• Wear comfortable shoes with good grip\n• Bring a flashlight\n• Be prepared to get wet during river tours\n• Suitable for adventure lovers"
+                    android:textSize="15sp"
+                    android:textColor="#333"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Button Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/viewOnMapTempurungBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#1565C0"
+                android:text="View on Map"
+                android:textColor="@android:color/white"
+                android:padding="12dp" />
+
+            <Button
+                android:id="@+id/learnMoreTempurungBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#0D47A1"
+                android:text="Learn More"
+                android:textColor="@android:color/white"
+                android:padding="12dp"
+                android:layout_marginStart="12dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

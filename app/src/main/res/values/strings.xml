@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Google Sign-In -->
+    <string name="default_web_client_id">562567506501-dsurpmidl132npea4f83klsoofmoef71.apps.googleusercontent.com</string>
+
+    <!-- App Name & Welcome -->
+    <string name="app_name">Perak Ecotourism</string>
+    <string name="welcome_message_desc">Welcome message for the user</string>
+
+    <!-- Main Activity Titles & Descriptions -->
+    <string name="explore_sites_title">Explore Ecotourism Sites</string>
+    <string name="explore_sites_desc">Navigate to explore ecotourism sites</string>
+    <string name="travel_tips_title">Eco-Friendly Travel Tips</string>
+    <string name="travel_tips_desc">Navigate to eco-friendly travel tips</string>
+    <string name="interactive_map_title">Interactive Ecotourism Map</string>
+    <string name="interactive_map_desc">Navigate to interactive ecotourism map</string>
+    <string name="eco_impact_report_title">Eco-Impact Report</string>
+    <string name="eco_impact_report_desc">Navigate to eco-impact report</string>
+    <string name="visitor_check_in_title">Visitor Check-In</string>
+    <string name="visitor_check_in_desc">Navigate to visitor check-in</string>
+    <string name="carbon_footprint_title">Track Your Carbon Footprint</string>
+    <string name="carbon_footprint_desc">Navigate to track your carbon footprint</string>
+    <string name="logout_title">Log Out</string>
+    <string name="logout_desc">Logout from the application</string>
+
+    <!-- Destination Guide -->
+    <string name="destination_guide_title">Explore Ecotourism Sites</string>
+    <string name="destination_guide_desc">Explore ecotourism destinations</string>
+    <string name="destination_image_description">Destination image</string>
+    <string name="error_loading_destinations">Failed to load destinations</string>
+
+    <!-- Destinations -->
+    <string name="royal_belum_name">Royal Belum State Park</string>
+    <string name="royal_belum_title">Royal Belum</string>
+    <string name="royal_belum_description">Discover the rich biodiversity of Royal Belum State Park</string>
+    <string name="royal_belum_image_desc">Image of Royal Belum State Park</string>
+
+    <string name="gua_tempurung_name">Gua Tempurung</string>
+    <string name="kuala_sepetang_name">Kuala Sepetang</string>
+
+    <!-- Sustainability Tips -->
+    <string name="sustainability_tips_title">Eco-Friendly Travel Tips</string>
+    <string name="sustainability_tips_desc">Learn eco-friendly travel tips</string>
+    <string name="tip_title_description">Title of the sustainability tip</string>
+    <string name="tip_description_description">Description of the sustainability tip</string>
+    <string name="tip_site_description">Related ecotourism site for the tip</string>
+    <string name="share_tip">Share Tip</string>
+    <string name="share_tip_description">Share this sustainability tip</string>
+    <string name="tip_detail_title">Tip Details</string>
+    <string name="tip_image">Tip image</string>
+    <string name="tip_image_description">Image related to eco-friendly tip</string>
+    <string name="tip_image_content_desc">Visual illustration of the tip</string>
+    <string name="error_loading_tip">Failed to load tip. Please try again.</string>
+    <string name="retry_button_description">Retry loading tip</string>
+
+    <!-- Eco-Impact Reporting -->
+    <string name="report_title">Eco-Impact Report</string>
+    <string name="report_title_desc">Eco-impact report header</string>
+    <string name="description_hint">Describe the issue (e.g., location details, severity)</string>
+    <string name="upload_photo">Upload Photo</string>
+    <string name="upload_photo_description">Upload a photo of the issue</string>
+    <string name="submit_report">Submit Report</string>
+    <string name="submit_report_description">Submit an eco-impact report</string>
+    <string name="report_submitted">Report submitted successfully!</string>
+    <string name="report_title_description">Report an environmental issue</string>
+    <string name="issue_type_description">Select the type of issue</string>
+    <string name="photo_preview_description">Preview of the uploaded photo</string>
+    <string name="error_photo_too_large">Photo size exceeds 5MB limit</string>
+    <string name="confirm_submission">Confirm Submission</string>
+    <string name="confirm_submission_message">Are you sure you want to submit this report?</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="location_unavailable">Location Unavailable</string>
+    <string name="enable_location_message">Please enable location services to submit the report.</string>
+    <string name="settings">Settings</string>
+    <string name="location_permission_rationale">Location permission is required to report issues accurately. Please enable it in settings.</string>
+    <string name="error_loading_reports">Failed to load reports</string>
+    <string name="select_photo_source">Select Photo Source</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera_permission_rationale">Camera permission is required to take photos. Please enable it in settings.</string>
+    <string name="report_status_title">My Reports</string>
+    <string name="no_reports_found">No reports found</string>
+    <string name="error_not_logged_in">Please log in to view your reports</string>
+    <string name="report_site_description">Site of the report</string>
+    <string name="report_issue_type_description">Type of issue reported</string>
+    <string name="report_description_description">Description of the issue</string>
+    <string name="report_status_description">Status of the report</string>
+    <string name="report_details_title">Report Details</string>
+    <string name="report_location_description">Location of the issue</string>
+    <string name="report_photo_description">Photo of the issue</string>
+    <string name="label_site">Site:</string>
+    <string name="label_issue_type">Issue Type:</string>
+    <string name="label_description">Description:</string>
+    <string name="label_status">Status:</string>
+    <string name="label_location">Location:</string>
+    <string name="label_timestamp">Submitted On:</string>
+    <string name="label_photo">Photo:</string>
+    <string name="report_timestamp_description">Submitted on: %1$s</string>
+    <string name="error_destination_not_found">Destination not found</string>
+    <string name="error_select_site">Please select a site</string>
+    <string name="error_empty_description">Description cannot be empty</string>
+    <string name="error_uploading_photo">Failed to upload photo</string>
+    <string name="error_submitting_report">Failed to submit report</string>
+    <string name="error_getting_location">Failed to get location</string>
+    <string name="location_permission_denied">Location permission denied</string>
+
+    <!-- Visitor Check-In -->
+    <string name="check_in_title">Visitor Check-In</string>
+    <string name="camera_permission_denied">Camera permission denied.</string>
+    <string name="site_selector_description">Select an ecotourism site to check in</string>
+
+    <!-- EcoTrack -->
+    <string name="eco_track_title">Track Your Carbon Footprint</string>
+
+    <!-- Full-Screen Image -->
+    <string name="full_screen_image_description">Full-screen view of destination image</string>
+    <string name="image_description_template">Image %d of destination gallery</string>
+
+    <!-- General -->
+    <string name="map_title">Ecotourism Map</string>
+    <string name="no_network">No internet connection.</string>
+    <string name="loading">Loading...</string>
+    <string name="please_wait">Please wait</string>
+    <string name="success">Success</string>
+    <string name="error">Something went wrong</string>
+    <string name="retry">Retry</string>
+    <string name="share">Share</string>
+    <string name="view_on_map_button">View on Map</string>
+
+    <!-- Issue Types for Eco-Impact Reporting -->
+    <string name="issue_type_littering">Littering</string>
+    <string name="issue_type_pollution">Pollution</string>
+    <string name="issue_type_wildlife_disturbance">Wildlife Disturbance</string>
+    <string name="issue_type_deforestation">Deforestation</string>
+    <string name="issue_type_water_contamination">Water Contamination</string>
+    <string name="issue_type_other">Other</string>
+
+    <!-- Accommodation Types -->
+    <string name="accommodation_type_hotel">Hotel</string>
+    <string name="accommodation_type_guesthouse">Guesthouse</string>
+    <string name="accommodation_type_hostel">Hostel</string>
+    <string name="accommodation_type_resort">Resort</string>
+    <string name="accommodation_type_camping">Camping</string>
+
+    <!-- Meal Preferences -->
+    <string name="meal_pref_vegetarian">Vegetarian</string>
+    <string name="meal_pref_vegan">Vegan</string>
+    <string name="meal_pref_halal">Halal</string>
+    <string name="meal_pref_gluten_free">Gluten-Free</string>
+    <string name="meal_pref_none">No Preference</string>
+
+    <string name="back_button">Back</string>
+    <string name="distance_hint">Distance Travelled (km)</string>
+    <string name="distance_helper">Enter total distance in kilometers</string>
+    <string name="distance_icon">Distance icon</string>
+    <string name="distance_input">Enter distance in km</string>
+    <string name="nights_hint">Number of Nights</string>
+    <string name="nights_helper">Enter number of nights stayed</string>
+    <string name="nights_icon">Nights icon</string>
+    <string name="nights_input">Enter number of nights</string>
+    <string name="transport_mode">Transport Mode</string>
+    <string name="transport_mode_select">Select transport mode</string>
+    <string name="accommodation_type">Accommodation Type</string>
+    <string name="accommodation_type_select">Select accommodation type</string>
+    <string name="meal_preference">Meal Preference</string>
+    <string name="meal_preference_select">Select meal preference</string>
+    <string name="reset">Reset</string>
+    <string name="reset_button">Reset inputs</string>
+    <string name="calculate_co2">Calculate CO₂</string>
+    <string name="calculate_button">Calculate carbon footprint</string>
+    <string name="result_co2">Carbon footprint result</string>
+    <string name="eco_badge">Eco badge</string>
+    <string name="motivational_message">Motivational message</string>
+    <string name="eco_tips">Eco-friendly tips</string>
+    <string name="show_more">Show More</string>
+    <string name="show_less">Show Less</string>
+    <string name="show_more_tips">Toggle eco tips</string>
+    <string name="co2_breakdown">CO₂ Contribution Breakdown</string>
+    <string name="transport_progress">Transport CO₂ contribution</string>
+    <string name="transport_highest">Highest transport contributor</string>
+    <string name="transport_label">Transport CO₂ value</string>
+    <string name="transport_default">Transport: 0 kg</string>
+    <string name="accommodation_progress">Accommodation CO₂ contribution</string>
+    <string name="accommodation_highest">Highest accommodation contributor</string>
+    <string name="accommodation_label">Accommodation CO₂ value</string>
+    <string name="accommodation_default">Accommodation: 0 kg</string>
+    <string name="meals_progress">Meals CO₂ contribution</string>
+    <string name="meals_highest">Highest meals contributor</string>
+    <string name="meals_label">Meals CO₂ value</string>
+    <string name="meals_default">Meals: 0 kg</string>
+    <string name="share_results">Share your EcoTrack results</string>
+    <string name="error_distance_required">Distance is required</string>
+    <string name="error_nights_required">Number of nights is required</string>
+    <string name="error_select_transport">Please select a transport mode</string>
+    <string name="error_select_accommodation">Please select an accommodation type</string>
+    <string name="error_select_meal">Please select a meal preference</string>
+    <string name="error_positive_values">Please enter positive values</string>
+    <string name="error_invalid_numbers">Please enter valid numbers</string>
+    <string name="error_invalid_selections">Invalid selections: No CO₂ factors available</string>
+    <string name="tip_switch_transport">Switch to bus or train: Trains emit ~80% less CO₂ than cars for medium distances.</string>
+    <string name="tip_choose_eco_lodge">Choose eco-lodge or camping: Hotels and resorts average 20-25 kg CO₂/night; camping is ~5 kg.</string>
+    <string name="tip_try_vegetarian">Try vegetarian or vegan: Meat-based diets emit up to 60% more CO₂ than plant-based.</string>
+    <string name="tip_high_co2">Overall high: Consider shorter trips or shared rides to reduce impact.</string>
+    <string name="tip_eco_friendly">Great job! Your choices are already eco-friendly.</string>
+    <string name="motivation_excellent">Excellent! You\'re a sustainability superstar!</string>
+    <string name="motivation_good">Good job! Small changes can make you even greener.</string>
+    <string name="motivation_improve">Let\'s improve! Try our eco tips to reduce your footprint.</string>
+    <string name="eco_tips_label">Eco Tips</string>
+
+    <string name="distance_input_layout">Distance input field</string>
+    <string name="nights_input_layout">Nights input field</string>
+    <string name="transport_mode_input">Transport mode selection</string>
+    <string name="accommodation_type_input">Accommodation type selection</string>
+    <string name="meal_preference_input">Meal preference selection</string>
+    <string name="toggle_tips">Toggle eco tips</string>
+    <string name="view_history">View History</string>
+    <string name="toggle_history_button">Toggle history view</string>
+    <string name="co2_breakdown_label">Contribution breakdown title</string>
+    <string name="voice_input">Voice input</string>
+    <string name="save_calculation">Save calculation</string>
+    <string name="loading_indicator">Loading indicator</string>
+    <string name="estimated_co2">Estimated CO₂ emission: </string>
+    <string name="reduction_label_text">Total CO₂ Reduction</string>
+    <string name="reduction_default">Total CO₂ Reduction: 0.00 kg</string>
+    <string name="reduction_progress">Reduction progress</string>
+    <string name="reduction_label">Reduction progress label</string>
+    <string name="voice_prompt">Say \'distance\', \'nights\', \'transport\', \'accommodation\', or \'meal\' with a value (e.g., \'distance 50\')...</string>
+    <string name="voice_error">Could not understand voice command</string>
+    <string name="audio_permission_denied">Audio permission denied</string>
+    <string name="calculation_saved">Calculation saved as #%d</string>
+    <string name="calculation_loaded">Loaded last calculation</string>
+    <string name="no_saved_calculations">No saved calculations</string>
+    <string name="entry">Entry #%d</string>
+    <string name="close">Close</string>
+    <string name="invalid_selection">Invalid selection for %s</string>
+    <string name="voice_prompt_for_spinner">Say a %s value (e.g., \'bus\' for transport)...</string>
+
+</resources>

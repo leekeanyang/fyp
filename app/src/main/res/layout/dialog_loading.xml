@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="@drawable/card_bg"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <!-- Animated Spinner -->
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTint="@android:color/holo_green_dark"/>
+
+    <!-- Text -->
+    <TextView
+        android:id="@+id/tv_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submitting Report..."
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:textStyle="bold"/>
+</LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to EcoTourism App"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Placeholders for other modules -->
+    <Button
+        android:id="@+id/btn_sustainability"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sustainability Tips"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btn_map"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Interactive Map"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btn_reporting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Eco-Impact Reporting"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btn_checkin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Visitor Check-in"
+        android:layout_marginTop="8dp" />
+
+</LinearLayout>

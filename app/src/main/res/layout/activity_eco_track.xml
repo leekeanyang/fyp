@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/eco_background">
+
+    <!-- AppBar with Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.Material3.Dark">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:backgroundTint="?attr/colorPrimary"
+            app:title="@string/eco_track_title"
+            app:titleTextColor="?attr/colorOnPrimary"
+            app:navigationIcon="@drawable/ic_back"
+            app:navigationIconTint="?attr/colorOnPrimary"
+            app:menu="@menu/eco_track_menu"
+            android:contentDescription="@string/back_button" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Loading Overlay -->
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/loading_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:indicatorColor="@color/eco_green"
+        app:trackColor="@color/eco_grey_light"
+        android:contentDescription="@string/loading_indicator" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Input Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="?attr/colorSurface"
+                app:cardElevation="2dp"
+                app:strokeColor="?attr/colorOutline"
+                app:strokeWidth="1dp"
+                app:cardCornerRadius="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <!-- Distance Input -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/distance_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/distance_hint"
+                        app:boxBackgroundMode="outline"
+                        app:helperText="@string/distance_helper"
+                        app:startIconDrawable="@drawable/ic_road"
+                        app:startIconContentDescription="@string/distance_icon"
+                        app:errorEnabled="true"
+                        app:boxStrokeColor="?attr/colorOutline"
+                        android:contentDescription="@string/distance_input_layout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/distance"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:textSize="16sp"
+                            android:importantForAutofill="no"
+                            android:contentDescription="@string/distance_input" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Transport Mode Spinner with Speak Button -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/transport_mode"
+                        android:layout_marginTop="12dp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textStyle="bold"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            app:boxBackgroundMode="outline"
+                            android:contentDescription="@string/transport_mode_input">
+
+                            <Spinner
+                                android:id="@+id/transport_mode"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:entries="@array/transport_modes"
+                                android:backgroundTint="?attr/colorSurfaceVariant"
+                                android:contentDescription="@string/transport_mode_select" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/speak_transport"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="8dp"
+                            android:backgroundTint="@color/eco_blue"
+                            app:icon="@drawable/ic_mic"
+                            app:iconGravity="textStart"
+                            app:cornerRadius="24dp" />
+                    </LinearLayout>
+
+                    <!-- Nights Input -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/nights_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="@string/nights_hint"
+                        app:boxBackgroundMode="outline"
+                        app:helperText="@string/nights_helper"
+                        app:startIconDrawable="@drawable/ic_hotel"
+                        app:startIconContentDescription="@string/nights_icon"
+                        app:errorEnabled="true"
+                        app:boxStrokeColor="?attr/colorOutline"
+                        android:contentDescription="@string/nights_input_layout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/nights"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:importantForAutofill="no"
+                            android:contentDescription="@string/nights_input" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Accommodation Spinner with Speak Button -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/accommodation_type"
+                        android:layout_marginTop="12dp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textStyle="bold"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            app:boxBackgroundMode="outline"
+                            android:contentDescription="@string/accommodation_type_input">
+
+                            <Spinner
+                                android:id="@+id/accommodation_type"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:entries="@array/accommodation_types"
+                                android:contentDescription="@string/accommodation_type_select" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/speak_accommodation"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="8dp"
+                            android:backgroundTint="@color/eco_green"
+                            app:icon="@drawable/ic_mic"
+                            app:iconGravity="textStart"
+                            app:cornerRadius="24dp" />
+                    </LinearLayout>
+
+                    <!-- Meal Spinner with Speak Button -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/meal_preference"
+                        android:layout_marginTop="12dp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textStyle="bold"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            app:boxBackgroundMode="outline"
+                            android:contentDescription="@string/meal_preference_input">
+
+                            <Spinner
+                                android:id="@+id/meal_preference"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:entries="@array/meal_preferences"
+                                android:contentDescription="@string/meal_preference_select" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/speak_meal"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="8dp"
+                            android:backgroundTint="@color/eco_red"
+                            app:icon="@drawable/ic_mic"
+                            app:iconGravity="textStart"
+                            app:cornerRadius="24dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Action Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/reset"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/reset"
+                    android:backgroundTint="?attr/colorSecondary"
+                    app:icon="@drawable/ic_reset"
+                    app:iconGravity="start"
+                    app:iconTint="?attr/colorOnSecondary"
+                    app:cornerRadius="24dp"
+                    android:contentDescription="@string/reset_button" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/calculate"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/calculate_co2"
+                    android:backgroundTint="@color/eco_green"
+                    app:icon="@drawable/ic_calculate"
+                    app:iconGravity="start"
+                    app:iconTint="?attr/colorOnPrimary"
+                    app:cornerRadius="24dp"
+                    android:contentDescription="@string/calculate_button" />
+            </LinearLayout>
+
+            <!-- Result Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/result_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="?attr/colorSurface"
+                app:cardElevation="2dp"
+                app:strokeColor="?attr/colorOutline"
+                app:strokeWidth="1dp"
+                app:cardCornerRadius="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <!-- Result and Badge -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/result"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="?attr/colorPrimary"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:contentDescription="@string/result_co2" />
+
+                        <ImageView
+                            android:id="@+id/badge_icon"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:visibility="gone"
+                            android:contentDescription="@string/eco_badge" />
+                    </LinearLayout>
+
+                    <!-- Eco Tips with Expandable Toggle -->
+                    <TextView
+                        android:id="@+id/eco_tips"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="?attr/colorSecondary"
+                        android:layout_marginTop="8dp"
+                        android:maxLines="3"
+                        android:ellipsize="end"
+                        android:contentDescription="@string/eco_tips" />
+
+                    <TextView
+                        android:id="@+id/toggle_tips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/show_more"
+                        android:textColor="@color/eco_green"
+                        android:layout_marginTop="4dp"
+                        android:visibility="gone"
+                        android:contentDescription="@string/toggle_tips"
+                        android:onClick="toggleEcoTips" />
+
+                    <!-- History Toggle -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/toggle_history"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/view_history"
+                        android:layout_marginTop="16dp"
+                        android:backgroundTint="@color/eco_grey"
+                        app:cornerRadius="12dp"
+                        android:contentDescription="@string/toggle_history_button"
+                        android:visibility="gone" />
+
+                    <!-- Contribution Breakdown (Collapsible) -->
+                    <LinearLayout
+                        android:id="@+id/contribution_section"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/co2_breakdown"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorOnSurface"
+                            android:contentDescription="@string/co2_breakdown_label" />
+
+                        <!-- Transport Contribution -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="8dp">
+
+                            <com.google.android.material.progressindicator.LinearProgressIndicator
+                                android:id="@+id/progress_transport"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="6dp"
+                                android:max="100"
+                                android:progress="0"
+                                app:indicatorColor="@color/eco_blue"
+                                app:trackColor="@color/eco_grey_light"
+                                android:contentDescription="@string/transport_progress" />
+
+                            <ImageView
+                                android:id="@+id/icon_transport"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:visibility="gone"
+                                android:src="@drawable/ic_warning"
+                                android:contentDescription="@string/transport_highest"
+                                android:layout_marginStart="8dp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/label_transport"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/transport_default"
+                            android:layout_marginTop="4dp"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:contentDescription="@string/transport_label" />
+
+                        <!-- Accommodation Contribution -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="8dp">
+
+                            <com.google.android.material.progressindicator.LinearProgressIndicator
+                                android:id="@+id/progress_accommodation"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="6dp"
+                                android:max="100"
+                                android:progress="0"
+                                app:indicatorColor="@color/eco_green"
+                                app:trackColor="@color/eco_grey_light"
+                                android:contentDescription="@string/accommodation_progress" />
+
+                            <ImageView
+                                android:id="@+id/icon_accommodation"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:visibility="gone"
+                                android:src="@drawable/ic_warning"
+                                android:contentDescription="@string/accommodation_highest"
+                                android:layout_marginStart="8dp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/label_accommodation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/accommodation_default"
+                            android:layout_marginTop="4dp"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:contentDescription="@string/accommodation_label" />
+
+                        <!-- Meals Contribution -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="8dp">
+
+                            <com.google.android.material.progressindicator.LinearProgressIndicator
+                                android:id="@+id/progress_meals"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="6dp"
+                                android:max="100"
+                                android:progress="0"
+                                app:indicatorColor="@color/eco_red"
+                                app:trackColor="@color/eco_grey_light"
+                                android:contentDescription="@string/meals_progress" />
+
+                            <ImageView
+                                android:id="@+id/icon_meals"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:visibility="gone"
+                                android:src="@drawable/ic_warning"
+                                android:contentDescription="@string/meals_highest"
+                                android:layout_marginStart="8dp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/label_meals"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/meals_default"
+                            android:layout_marginTop="4dp"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:contentDescription="@string/meals_label" />
+                    </LinearLayout>
+
+                    <!-- Reduction Progress -->
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/reduction_progress"
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:layout_marginTop="16dp"
+                        android:max="1000"
+                        android:progress="0"
+                        app:indicatorColor="@color/eco_green"
+                        app:trackColor="@color/eco_grey_light"
+                        android:contentDescription="@string/reduction_progress" />
+
+                    <TextView
+                        android:id="@+id/reduction_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/reduction_default"
+                        android:layout_marginTop="4dp"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:contentDescription="@string/reduction_label" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Floating Action Buttons -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_share"
+        android:visibility="gone"
+        android:contentDescription="@string/share_results"
+        app:backgroundTint="@color/eco_green"
+        app:tooltipText="@string/share_results" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="128dp"
+        android:src="@drawable/ic_save"
+        android:contentDescription="@string/save_calculation"
+        app:backgroundTint="@color/eco_grey"
+        app:fabSize="mini"
+        app:tooltipText="@string/save_calculation" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

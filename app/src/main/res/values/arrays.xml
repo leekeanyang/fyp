@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="destinations">
+        <item>@string/royal_belum_name</item>
+        <item>@string/gua_tempurung_name</item>
+        <item>@string/kuala_sepetang_name</item>
+    </string-array>
+
+    <string-array name="issue_types">
+        <item>@string/issue_type_littering</item>
+        <item>@string/issue_type_pollution</item>
+        <item>@string/issue_type_wildlife_disturbance</item>
+        <item>@string/issue_type_deforestation</item>
+        <item>@string/issue_type_water_contamination</item>
+        <item>@string/issue_type_other</item>
+    </string-array>
+
+    <string-array name="transport_modes">
+        <item>Car (single rider)</item>
+        <item>Bus</item>
+        <item>Train</item>
+        <item>Domestic Flight</item>
+        <item>International Flight</item>
+    </string-array>
+
+    <string-array name="accommodation_types">
+        <item>Hotel</item>
+        <item>Eco-Lodge</item>
+        <item>Guesthouse</item>
+        <item>Hostel</item>
+        <item>Resort</item>
+        <item>Camping</item>
+    </string-array>
+
+    <string-array name="meal_preferences">
+        <item>Vegetarian</item>
+        <item>Vegan</item>
+        <item>Halal</item>
+        <item>Gluten-Free</item>
+        <item>No Preference</item>
+    </string-array>
+
+    <string-array name="transport_options">
+        <item>Select Transport</item>
+        <item>Car</item>
+        <item>Bus</item>
+        <item>Boat</item>
+        <item>Bicycle</item>
+        <item>Walking</item>
+    </string-array>
+
+    <string-array name="accommodation_options">
+        <item>Select Accommodation</item>
+        <item>Hotel</item>
+        <item>Eco-Lodge</item>
+        <item>Homestay</item>
+        <item>Camping</item>
+    </string-array>
+
+    <string-array name="meal_options">
+        <item>Select Meal</item>
+        <item>Local Cuisine</item>
+        <item>Vegetarian</item>
+        <item>Vegan</item>
+        <item>Western</item>
+    </string-array>
+</resources>

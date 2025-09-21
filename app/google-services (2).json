@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "562567506501",
+    "project_id": "perak-ecotourism-sites",
+    "storage_bucket": "perak-ecotourism-sites.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562567506501:android:b0fa06a278afcdd1f1112c",
+        "android_client_info": {
+          "package_name": "com.example.fyp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSiWIrsdLcrO0nB1Jim-WGZzhEWW5syZ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

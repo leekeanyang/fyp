@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F9F9F9">
+
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar"
+        app:title="Perak Ecotourism"
+        app:titleCentered="true"
+        app:titleTextColor="@android:color/white"
+        android:elevation="4dp" />
+
+    <!-- Welcome Text -->
+    <TextView
+        android:id="@+id/txtWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome, User!"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center" />
+
+    <!-- Scrollable Menu -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <!-- Explore Ecotourism Sites -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnExploreSites"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Explore Ecotourism Sites"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp"
+                app:icon="@android:drawable/ic_menu_myplaces"
+                app:iconTint="@color/colorPrimary"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="2dp" />
+
+            <!-- Eco-Friendly Travel Tips -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTravelTips"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Eco-Friendly Travel Tips"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp"
+                app:icon="@android:drawable/ic_menu_info_details"
+                app:iconTint="@color/colorPrimary"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="2dp" />
+
+            <!-- Interactive Map -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMap"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Interactive Ecotourism Map"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp"
+                app:icon="@android:drawable/ic_dialog_map"
+                app:iconTint="@color/colorPrimary"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="2dp" />
+
+            <!-- Eco Impact Report -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnImpactReport"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Eco-Impact Report"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp"
+                app:icon="@android:drawable/ic_menu_edit"
+                app:iconTint="@color/colorPrimary"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="2dp" />
+
+            <!-- Visitor Check-In -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCheckIn"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Visitor Check-In"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp"
+                app:icon="@android:drawable/ic_menu_mylocation"
+                app:iconTint="@color/colorPrimary"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="2dp" />
+
+            <!-- Track Carbon Footprint -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCarbonFootprint"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Track Your Carbon Footprint"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp"
+                app:icon="@android:drawable/ic_menu_compass"
+                app:iconTint="@color/colorPrimary"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="2dp" />
+
+            <!-- Logout -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Log Out"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textColor="@android:color/holo_red_dark"
+                android:layout_marginBottom="12dp"
+                app:icon="@android:drawable/ic_lock_power_off"
+                app:iconTint="@android:color/holo_red_dark"
+                app:strokeColor="@android:color/holo_red_dark"
+                app:strokeWidth="2dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

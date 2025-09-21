@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/map_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#388E3C"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="Ecotourism Interactive Map"
+        app:titleTextColor="@android:color/white"
+        app:logo="@drawable/ic_ecotourism" />
+
+    <!-- Card for Itinerary Selection -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose Your Destination"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:paddingBottom="6dp"
+                android:textColor="#333" />
+
+            <Spinner
+                android:id="@+id/itinerary_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/plan_itinerary_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plan Itinerary"
+                android:backgroundTint="#388E3C"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Map View -->
+    <org.osmdroid.views.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Floating Action Buttons -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_my_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_my_location"
+            android:contentDescription="My Location"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"
+            app:backgroundTint="#388E3C" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_filter_sites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_filter"
+            android:contentDescription="Filter Sites"
+            android:layout_alignParentStart="true"
+            android:layout_margin="16dp"
+            app:backgroundTint="#4CAF50" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_reset_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_reset_view"
+            android:contentDescription="Reset View"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            app:backgroundTint="#1976D2" />
+
+    </RelativeLayout>
+
+</LinearLayout>

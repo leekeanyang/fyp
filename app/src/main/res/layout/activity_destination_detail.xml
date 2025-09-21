@@ -1,0 +1,50 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Image Gallery -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/image_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/dest_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Destination Name"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/dest_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textSize="16sp"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/dest_guidelines"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guidelines"
+            android:textSize="16sp"
+            android:paddingBottom="8dp"/>
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back"/>
+
+    </LinearLayout>
+</ScrollView>

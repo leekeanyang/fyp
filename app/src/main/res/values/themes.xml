@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light Theme (Default) -->
+    <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+    <!-- Primary brand color -->
+        <item name="colorPrimary">@color/forest_green</item>
+        <item name="colorPrimaryVariant">@color/dark_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/earth_brown</item>
+        <item name="colorSecondaryVariant">@color/light_brown</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Background and surface -->
+        <item name="android:background">@color/light_gray</item>
+        <item name="colorSurface">@color/white</item>
+        <!-- Text and icon colors -->
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/dark_gray</item>
+        <!-- Status bar and navigation bar -->
+        <item name="android:statusBarColor">@color/forest_green</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/light_gray</item>
+        <!-- Enable window content transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+        <!-- Reference component styles -->
+        <item name="buttonStyle">@style/EcoButton</item>
+        <item name="textInputStyle">@style/EcoEditText</item>
+        <item name="spinnerStyle">@style/EcoSpinner</item>
+    </style>
+
+    <!-- Dark Theme -->
+    <style name="AppTheme.Dark" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/forest_green</item>
+        <item name="colorPrimaryVariant">@color/dark_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/earth_brown</item>
+        <item name="colorSecondaryVariant">@color/light_brown</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Background and surface -->
+        <item name="android:background">@color/dark_gray</item>
+        <item name="colorSurface">@color/black</item>
+        <!-- Text and icon colors -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/light_gray</item>
+        <!-- Status bar and navigation bar -->
+        <item name="android:statusBarColor">@color/dark_green</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/black</item>
+        <!-- Enable window content transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+        <!-- Reference component styles -->
+        <item name="buttonStyle">@style/EcoButton</item>
+        <item name="textInputStyle">@style/EcoEditText</item>
+        <item name="spinnerStyle">@style/EcoSpinner</item>
+    </style>
+</resources>

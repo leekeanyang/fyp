@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.fyp">
+
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <!-- Required for Google Maps/OSMDroid -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FypEcoTourism">
+
+        <!-- FileProvider for sharing files (e.g., images) -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- Google Maps API Key (used by OSMDroid or Google Maps) -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDSiWIrsdLcrO0nB1Jim-WGZzhEWW5syZ0" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!-- Barcode Scanner Activity -->
+        <activity android:name="com.journeyapps.barcodescanner.CaptureActivity" />
+
+        <!-- Main Entry Point (SplashActivity as launcher) -->
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Other Activities -->
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".auth.LoginActivity"
+            android:exported="true" /> <!-- Removed duplicate LAUNCHER intent-filter -->
+        <activity
+            android:name=".auth.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity android:name=".auth.VerifyEmailActivity" />
+        <activity android:name=".auth.UserProfileActivity" />
+
+        <!-- Destination Guide Activities -->
+        <activity
+            android:name=".activities.DestinationGuideActivity"
+            android:label="@string/destination_guide_title"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activities.DestinationDetailActivity"
+            android:label="@string/destination_guide_title"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activities.SiteDetailActivity" />
+        <activity
+            android:name=".activities.RoyalBelumActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.GuaTempurungActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.KualaSepetangActivity"
+            android:exported="false" />
+
+        <!-- Sustainability Tips Activities -->
+        <activity
+            android:name=".activities.SustainabilityTipsActivity"
+            android:label="@string/sustainability_tips_title"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activities.TipDetailActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:exported="false">
+            <meta-data
+                android:name="android.transition"
+                android:value="shared_element" />
+        </activity>
+
+        <!-- Interactive Map Activity -->
+        <activity
+            android:name=".activities.InteractiveMapActivity"
+            android:label="@string/map_title"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+
+        <!-- Eco-Impact Reporting Activities -->
+        <activity
+            android:name=".activities.EcoImpactReportActivity"
+            android:label="@string/report_title"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activities.ReportStatusActivity" />
+
+        <!-- Visitor Check-In Activity -->
+        <activity
+            android:name=".activities.VisitorCheckInActivity"
+            android:label="@string/check_in_title"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+
+        <!-- EcoTrack Activity -->
+        <activity
+            android:name=".activities.EcoTrackActivity"
+            android:label="EcoTrack"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".activities.FullScreenImageActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:exported="false">
+            <meta-data
+                android:name="android.transition"
+                android:value="shared_element" />
+        </activity>
+
+        <activity
+            android:name=".activities.ReportIssueActivity"
+            android:label="@string/report_title"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+
+    </application>
+
+</manifest>

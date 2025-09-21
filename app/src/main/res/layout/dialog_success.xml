@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="@drawable/card_bg">
+
+    <!-- Green Checkmark Animation -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_success"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:lottie_rawRes="@raw/success_check"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false" />
+
+    <!-- Success Text -->
+    <TextView
+        android:id="@+id/tv_success"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Report Submitted!"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="18sp"
+        android:layout_marginTop="12dp"
+        android:textStyle="bold"/>
+</LinearLayout>

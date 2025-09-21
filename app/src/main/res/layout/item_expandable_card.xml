@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- Title Row with Arrow -->
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Royal Belum Rainforest"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#1B5E20" />
+
+            <!-- Arrow Icon -->
+            <ImageView
+                android:id="@+id/arrowIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_arrow_drop_down"
+                android:tint="#1B5E20" />
+        </LinearLayout>
+
+        <!-- Expandable Content -->
+        <LinearLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:id="@+id/descriptionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Royal Belum State Park, located in Perak, is one of the world’s oldest rainforests, over 130 million years old. It is home to endangered species such as the Malayan tiger, hornbills, and the world’s largest flower, Rafflesia."
+                android:textSize="15sp"
+                android:textColor="#444"
+                android:lineSpacingExtra="3dp"/>
+
+            <Button
+                android:id="@+id/viewOnMapBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View on Map"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#1B5E20"
+                android:textColor="#FFF"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

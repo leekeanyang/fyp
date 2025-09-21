@@ -1,0 +1,66 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Issue Type Dropdown -->
+        <Spinner
+            android:id="@+id/spinnerIssueType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Description -->
+        <EditText
+            android:id="@+id/editTextDescription"
+            android:hint="Describe the issue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="100dp"
+            android:gravity="top"/>
+
+        <!-- Photo Upload -->
+        <Button
+            android:id="@+id/buttonUploadPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Photo" />
+
+        <ImageView
+            android:id="@+id/imagePreview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+
+        <!-- GPS Location -->
+        <TextView
+            android:id="@+id/textViewLocation"
+            android:text="Location: Not captured"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"/>
+
+        <Button
+            android:id="@+id/buttonCaptureLocation"
+            android:text="Capture Location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- Submit -->
+        <Button
+            android:id="@+id/buttonSubmitReport"
+            android:text="Submit Report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/holo_green_dark"
+            android:textColor="@android:color/white"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+</ScrollView>

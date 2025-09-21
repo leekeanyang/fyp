@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EcoTrack Carbon Calculator"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spinner_transport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/transport_modes" />
+
+    <EditText
+        android:id="@+id/edit_distance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Distance (km)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/edit_nights"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nights of stay"
+        android:inputType="number" />
+
+    <Spinner
+        android:id="@+id/spinner_accommodation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/accommodation_types" />
+
+    <Spinner
+        android:id="@+id/spinner_meals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/meal_preferences" />
+
+    <Button
+        android:id="@+id/btn_calculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculate CO₂" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total CO₂: "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tips: "
+        android:textSize="16sp" />
+
+</LinearLayout>

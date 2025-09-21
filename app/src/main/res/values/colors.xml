@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Core Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray_light">#E0E0E0</color>
+    <color name="gray">#555555</color>
+    <color name="gray_dark">#424242</color>
+
+    <!-- Eco Theme -->
+    <color name="eco_green">#81C784</color> <!-- Low impact -->
+    <color name="eco_green_dark">#1B5E20</color>
+    <color name="eco_green_primary">#1A3C34</color>
+    <color name="eco_red">#E57373</color> <!-- High impact -->
+    <color name="eco_yellow">#FFF176</color>
+    <color name="eco_blue">#64B5F6</color>
+    <color name="eco_background">#F5F5F5</color>
+
+    <!-- Earth Theme -->
+    <color name="earth_brown">#6D4C41</color>
+    <color name="earth_orange">#FF9800</color>
+    <color name="earth_purple">#9C27B0</color>
+
+    <!-- UI Elements -->
+    <color name="background_light">#F5F7F6</color>
+    <color name="background_dark">#333333</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="button_background">#4CAF50</color>
+    <color name="button_text">#FFFFFF</color>
+    <color name="text_primary">#1A3C34</color>
+    <color name="text_secondary">#666666</color>
+    <color name="hint_color">#B0BEC5</color>
+    <color name="link_color">#BBDEFB</color>
+
+    <!-- Highlights -->
+    <color name="highlight_red">#FF5252</color>
+    <color name="highlight_green">#4CAF50</color>
+    <color name="highlight_blue">#2196F3</color>
+
+    <!-- Gradients -->
+    <color name="background_gradient_start">#4CAF50</color>
+    <color name="background_gradient_end">#1A3C34</color>
+
+    <color name="forest_green">#228B22</color>
+    <color name="dark_green">#006400</color>
+    <color name="light_brown">#A0522D</color>
+    <color name="light_gray">#D3D3D3</color>
+    <color name="dark_gray">#A9A9A9</color>
+
+    <color name="leaf_green">#66BB6A</color>
+
+    <color name="green">#4CAF50</color>
+    <color name="green_dark">#388E3C</color>
+    <color name="colorPrimary">#2E7D32</color>
+    <color name="colorPrimaryDark">#1B5E20</color>
+    <color name="colorAccent">#66BB6A</color>
+    <color name="background">#FAF3E0</color>
+    <color name="green_start">#4CAF50</color>
+    <color name="green_end">#388E3C</color>
+    <color name="green_dark_start">#2E7D32</color>
+    <color name="green_dark_end">#1B5E20</color>
+    <color name="semi_white">#DDFFFFFF</color>
+    <color name="eco_dark_green">#1B5E20</color>
+    <color name="eco_light_green">#A5D6A7</color>
+    <color name="eco_light_blue">#90CAF9</color>
+    <color name="eco_light_yellow">#FFF59D</color>
+    <color name="eco_orange">#FFA726</color>
+    <color name="impact_transport">#E53935</color> <!-- Red -->
+    <color name="impact_accommodation">#1E88E5</color> <!-- Blue -->
+    <color name="impact_meals">#43A047</color> <!-- Green -->
+    <color name="eco_hero">#388E3C</color>       <!-- Green -->
+    <color name="eco_balanced">#FFA000</color>   <!-- Amber -->
+    <color name="eco_high">#D32F2F</color>       <!-- Red -->
+    <color name="eco_gradient_start">#E0F7FA</color>
+    <color name="eco_gradient_end">#B2EBF2</color>
+    <!-- Transport -->
+    <color name="transport_start">#81D4FA</color>
+    <color name="transport_end">#29B6F6</color>
+
+    <!-- Accommodation -->
+    <color name="accommodation_start">#A5D6A7</color>
+    <color name="accommodation_end">#66BB6A</color>
+
+    <!-- Meals -->
+    <color name="meals_start">#FFAB91</color>
+    <color name="meals_end">#FF7043</color>
+
+    <color name="eco_meter_track">#E0E0E0</color>
+    <color name="eco_meter_green">#66BB6A</color>
+    <color name="eco_meter_yellow">#FFEB3B</color>
+    <color name="eco_meter_red">#EF5350</color>
+
+    <!-- Progress Bar Gradients -->
+    <color name="progress_transport_start">#FFB74D</color>
+    <color name="progress_transport_end">#FF9800</color>
+
+    <color name="progress_accommodation_start">#4DB6AC</color>
+    <color name="progress_accommodation_end">#26A69A</color>
+
+    <color name="progress_meals_start">#FF8A65</color>
+    <color name="progress_meals_end">#FF5722</color>
+
+    <!-- Result Card -->
+    <color name="result_card_start">#A8E6CF</color>
+    <color name="result_card_end">#DCEDC1</color>
+
+    <!-- Text Colors -->
+    <color name="eco_text_primary">#1B5E20</color>
+    <color name="eco_text_secondary">#2E7D32</color>
+
+    <!-- Badge Colors -->
+    <color name="badge_gold">#FFD700</color>
+    <color name="badge_silver">#C0C0C0</color>
+    <color name="badge_bronze">#CD7F32</color>
+
+    <!-- Backgrounds -->
+    <color name="eco_surface">#FFFFFF</color>
+    <color name="eco_surface_variant">#F1F8E9</color>
+    <color name="eco_grey">#B0BEC5</color>
+    <color name="eco_blue_light">#BBDEFB</color>
+    <color name="eco_background_tint">#F5F7F5</color>
+    <color name="eco_grey_dark">#78909C</color>
+    <color name="eco_grey_light">#CFD8DC</color>
+    <color name="ic_launcher_background">#FFFFFF</color> <!-- 白色背景，可改 -->
+
+</resources>

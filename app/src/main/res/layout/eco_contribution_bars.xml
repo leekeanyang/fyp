@@ -1,0 +1,109 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp">
+
+    <!-- Transport Contribution -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <ImageView
+            android:id="@+id/icon_transport"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_car"
+            android:visibility="gone"
+            android:contentDescription="Highest contributor"/>
+
+        <TextView
+            android:id="@+id/label_transport"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Transport: 0 kg"
+            android:textSize="14sp"
+            android:paddingStart="8dp"/>
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progress_transport"
+            style="@style/Widget.MaterialComponents.LinearProgressIndicator"
+            android:layout_width="100dp"
+            android:layout_height="8dp"
+            android:progress="0"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <!-- Accommodation Contribution -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <ImageView
+            android:id="@+id/icon_accommodation"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_hotel"
+            android:visibility="gone"
+            android:contentDescription="Highest contributor"/>
+
+        <TextView
+            android:id="@+id/label_accommodation"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Accommodation: 0 kg"
+            android:textSize="14sp"
+            android:paddingStart="8dp"/>
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progress_accommodation"
+            style="@style/Widget.MaterialComponents.LinearProgressIndicator"
+            android:layout_width="100dp"
+            android:layout_height="8dp"
+            android:progress="0"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <!-- Meal Contribution -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <ImageView
+            android:id="@+id/icon_meals"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_meal"
+            android:visibility="gone"
+            android:contentDescription="Highest contributor"/>
+
+        <TextView
+            android:id="@+id/label_meals"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Meals: 0 kg"
+            android:textSize="14sp"
+            android:paddingStart="8dp"/>
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progress_meals"
+            style="@style/Widget.MaterialComponents.LinearProgressIndicator"
+            android:layout_width="100dp"
+            android:layout_height="8dp"
+            android:progress="0"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+</LinearLayout>

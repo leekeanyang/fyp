@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Gold Circle -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M12,2a10,10 0 1,0 0,20a10,10 0 1,0 0,-20z"/>
+
+    <!-- Leaf in Center -->
+    <path
+        android:fillColor="#388E3C"
+        android:pathData="M12,7c-2.5,0 -4.5,2 -4.5,4.5S9.5,16 12,16s4.5,-2 4.5,-4.5S14.5,7 12,7zM12,14c-1.38,0 -2.5,-1.12 -2.5,-2.5S10.62,9 12,9s2.5,1.12 2.5,2.5S13.38,14 12,14z"/>
+</vector>
