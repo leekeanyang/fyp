@@ -162,6 +162,114 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <!-- Collapsible Section: Sensitive Areas -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/sensitiveTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="⚠️ Sensitive Areas"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#2E7D32" />
+
+                <TextView
+                    android:id="@+id/sensitiveContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="• Mangrove seedling zones are restricted\n• Stay off firefly breeding areas at night\n• Avoid stepping on mudflats near crab habitats"
+                    android:textSize="15sp"
+                    android:textColor="#333"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Collapsible Section: Visitor Guidelines -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/guidelinesTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="✅ Visitor Guidelines"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#2E7D32" />
+
+                <TextView
+                    android:id="@+id/guidelinesContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="• Use red-filtered lights for firefly tours\n• No loud music on river cruises\n• Keep plastic and food waste secured"
+                    android:textSize="15sp"
+                    android:textColor="#333"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Collapsible Section: Facilities -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/facilitiesTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="🏕️ Facilities"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#2E7D32" />
+
+                <TextView
+                    android:id="@+id/facilitiesContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="• Jetty access and boat tours\n• Mangrove education center\n• Local homestays and seafood stalls"
+                    android:textSize="15sp"
+                    android:textColor="#333"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
         <!-- Button Row -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -185,6 +293,16 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#4E342E"
                 android:text="Learn More"
+                android:textColor="@android:color/white"
+                android:padding="12dp"
+                android:layout_marginStart="12dp"/>
+
+            <Button
+                android:id="@+id/viewGallerySepetangBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#1B5E20"
+                android:text="Gallery"
                 android:textColor="@android:color/white"
                 android:padding="12dp"
                 android:layout_marginStart="12dp"/>

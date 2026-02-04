@@ -25,6 +25,7 @@ public class KualaSepetangActivity extends AppCompatActivity {
         // Buttons
         Button viewOnMapBtn = findViewById(R.id.viewOnMapSepetangBtn);
         Button learnMoreBtn = findViewById(R.id.learnMoreSepetangBtn);
+        Button viewGalleryBtn = findViewById(R.id.viewGallerySepetangBtn);
 
         viewOnMapBtn.setOnClickListener(v -> {
             String mapUrl = "https://www.google.com/maps?q=Kuala+Sepetang";
@@ -39,10 +40,19 @@ public class KualaSepetangActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        viewGalleryBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(KualaSepetangActivity.this, GalleryActivity.class);
+            intent.putExtra(GalleryActivity.EXTRA_SITE, GalleryActivity.SITE_KUALA_SEPETANG);
+            startActivity(intent);
+        });
+
         // Collapsible Sections
         setupCollapsible(R.id.activitiesTitle, R.id.activitiesContent);
         setupCollapsible(R.id.foodTitle, R.id.foodContent);
         setupCollapsible(R.id.ecoTitle, R.id.ecoContent);
+        setupCollapsible(R.id.sensitiveTitle, R.id.sensitiveContent);
+        setupCollapsible(R.id.guidelinesTitle, R.id.guidelinesContent);
+        setupCollapsible(R.id.facilitiesTitle, R.id.facilitiesContent);
     }
 
     private void setupCollapsible(int titleId, int contentId) {

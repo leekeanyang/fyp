@@ -26,6 +26,7 @@ import androidx.core.app.ActivityCompat;
 import com.example.fyp.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -42,7 +43,11 @@ public class VisitorCheckInActivity extends AppCompatActivity {
 
     private FusedLocationProviderClient fusedLocationClient;
     private TextView txtStatus;
+    private TextView txtCapacityLabel;
+    private TextView txtCapacityHint;
+    private TextView txtCapacityCount;
     private ProgressBar progressCheckin;
+    private LinearProgressIndicator capacityIndicator;
     private ImageView ivCheckinBadge;
     private Button btnCheckInQR, btnCheckInGPS, btnCheckInHistory;
     private SharedPreferences prefs;
@@ -67,6 +72,10 @@ public class VisitorCheckInActivity extends AppCompatActivity {
         // Initialize UI
         txtStatus = findViewById(R.id.txtStatus);
         progressCheckin = findViewById(R.id.progress_checkin);
+        txtCapacityLabel = findViewById(R.id.txtCapacityLabel);
+        txtCapacityHint = findViewById(R.id.txtCapacityHint);
+        txtCapacityCount = findViewById(R.id.txtCapacityCount);
+        capacityIndicator = findViewById(R.id.progress_capacity);
         ivCheckinBadge = findViewById(R.id.iv_checkin_badge);
         btnCheckInQR = findViewById(R.id.btnCheckInQR);
         btnCheckInGPS = findViewById(R.id.btnCheckInGPS);
@@ -113,6 +122,8 @@ public class VisitorCheckInActivity extends AppCompatActivity {
                 }
             }
         });
+
+        updateCapacityUI();
     }
 
     private void startVoiceInputForQR() {
@@ -178,6 +189,7 @@ public class VisitorCheckInActivity extends AppCompatActivity {
             Toast.makeText(this, "One check-in per day allowed", Toast.LENGTH_SHORT).show();
         }
         progressCheckin.setVisibility(View.GONE);
+        updateCapacityUI();
     }
 
     private String formatLastCheckIn() {
@@ -187,6 +199,26 @@ public class VisitorCheckInActivity extends AppCompatActivity {
         return String.format("%02d/%02d/%04d %02d:%02d",
                 cal.get(Calendar.DAY_OF_MONTH), cal.get(Calendar.MONTH) + 1, cal.get(Calendar.YEAR),
                 cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE));
+    }
+
+    private void updateCapacityUI() {
+        int capacity = Math.min(checkInCount, 100);
+        capacityIndicator.setProgress(capacity);
+        txtCapacityCount.setText("Visitors today: " + capacity + "/100");
+
+        if (capacity < 30) {
+            txtCapacityLabel.setText("Eco-Capacity: Low");
+            txtCapacityLabel.setTextColor(getColor(R.color.green));
+            txtCapacityHint.setText("Plenty of space. Enjoy your visit!");
+        } else if (capacity < 70) {
+            txtCapacityLabel.setText("Eco-Capacity: Moderate");
+            txtCapacityLabel.setTextColor(getColor(R.color.eco_orange));
+            txtCapacityHint.setText("Moderate crowding. Consider quieter trails.");
+        } else {
+            txtCapacityLabel.setText("Eco-Capacity: High");
+            txtCapacityLabel.setTextColor(getColor(R.color.eco_red));
+            txtCapacityHint.setText("Crowded. Try another site or visit off-peak.");
+        }
     }
 
     @Override

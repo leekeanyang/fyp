@@ -1,6 +1,5 @@
 package com.example.fyp.activities;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +17,11 @@ import java.util.TimerTask;
 
 public class GalleryActivity extends AppCompatActivity {
 
+    public static final String EXTRA_SITE = "extra_site";
+    public static final String SITE_ROYAL_BELUM = "site_royal_belum";
+    public static final String SITE_GUA_TEMPURUNG = "site_gua_tempurung";
+    public static final String SITE_KUALA_SEPETANG = "site_kuala_sepetang";
+
     private ViewPager2 viewPager;
     private Timer timer;
     private int currentPage = 0;
@@ -30,17 +34,48 @@ public class GalleryActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.view_pager);
         DotsIndicator dotsIndicator = findViewById(R.id.dots_indicator);
 
-        // Sample images & captions
-        List<String> images = Arrays.asList("royal_belum_1", "gua_tempurung_1", "kuala_sepetang_1");
-        List<String> captions = Arrays.asList("Royal Belum Rainforest", "Gua Tempurung Caves", "Kuala Sepetang Mangrove");
+        String site = getIntent().getStringExtra(EXTRA_SITE);
+        setTitle(getTitleForSite(site));
+        List<String> images = getImagesForSite(site);
+        List<String> captions = getCaptionsForSite(site);
 
-        ImageAdapter adapter = new ImageAdapter((Context) images, captions);
+        ImageAdapter adapter = new ImageAdapter(this, images, captions);
         viewPager.setAdapter(adapter);
         viewPager.setPageTransformer(new ZoomOutPageTransformer());
 
         dotsIndicator.setViewPager2(viewPager);
 
         autoSlide(3000); // Auto-slide every 3 seconds
+    }
+
+    private List<String> getImagesForSite(String site) {
+        if (SITE_GUA_TEMPURUNG.equals(site)) {
+            return Arrays.asList("gua_tempurung_1", "gua_tempurung_2", "gua_tempurung_3");
+        }
+        if (SITE_KUALA_SEPETANG.equals(site)) {
+            return Arrays.asList("kuala_sepetang_1", "kuala_sepetang_2", "kuala_sepetang_3");
+        }
+        return Arrays.asList("royal_belum_1", "royal_belum_2", "royal_belum_3");
+    }
+
+    private List<String> getCaptionsForSite(String site) {
+        if (SITE_GUA_TEMPURUNG.equals(site)) {
+            return Arrays.asList("Gua Tempurung Entrance", "Limestone Chambers", "Underground Rivers");
+        }
+        if (SITE_KUALA_SEPETANG.equals(site)) {
+            return Arrays.asList("Mangrove Walkways", "Firefly River Cruise", "Fishing Village Views");
+        }
+        return Arrays.asList("Rainforest Canopy", "Temenggor Lake", "Wildlife Habitat");
+    }
+
+    private String getTitleForSite(String site) {
+        if (SITE_GUA_TEMPURUNG.equals(site)) {
+            return "Gua Tempurung Gallery";
+        }
+        if (SITE_KUALA_SEPETANG.equals(site)) {
+            return "Kuala Sepetang Gallery";
+        }
+        return "Royal Belum Gallery";
     }
 
     private void autoSlide(int interval) {

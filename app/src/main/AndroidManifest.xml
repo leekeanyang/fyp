@@ -155,6 +155,11 @@
         </activity>
 
         <activity
+            android:name=".activities.GalleryActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+
+        <activity
             android:name=".activities.ReportIssueActivity"
             android:label="@string/report_title"
             android:exported="false"
