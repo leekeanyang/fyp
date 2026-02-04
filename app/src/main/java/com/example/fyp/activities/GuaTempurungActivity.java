@@ -25,6 +25,7 @@ public class GuaTempurungActivity extends AppCompatActivity {
         // Buttons
         Button viewOnMapBtn = findViewById(R.id.viewOnMapTempurungBtn);
         Button learnMoreBtn = findViewById(R.id.learnMoreTempurungBtn);
+        Button viewGalleryBtn = findViewById(R.id.viewGalleryTempurungBtn);
 
         viewOnMapBtn.setOnClickListener(v -> {
             String mapUrl = "https://www.google.com/maps?q=Gua+Tempurung+Perak";
@@ -39,10 +40,19 @@ public class GuaTempurungActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        viewGalleryBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(GuaTempurungActivity.this, GalleryActivity.class);
+            intent.putExtra(GalleryActivity.EXTRA_SITE, GalleryActivity.SITE_GUA_TEMPURUNG);
+            startActivity(intent);
+        });
+
         // Collapsible Sections
         setupCollapsible(R.id.highlightsTitle, R.id.highlightsContent);
         setupCollapsible(R.id.toursTitle, R.id.toursContent);
         setupCollapsible(R.id.tipsTitle, R.id.tipsContent);
+        setupCollapsible(R.id.sensitiveTitle, R.id.sensitiveContent);
+        setupCollapsible(R.id.guidelinesTitle, R.id.guidelinesContent);
+        setupCollapsible(R.id.facilitiesTitle, R.id.facilitiesContent);
     }
 
     private void setupCollapsible(int titleId, int contentId) {

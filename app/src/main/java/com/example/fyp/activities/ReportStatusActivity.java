@@ -32,11 +32,16 @@ public class ReportStatusActivity extends AppCompatActivity {
         // Get report details
         String issueType = getIntent().getStringExtra("issueType");
         String description = getIntent().getStringExtra("description");
+        String location = getIntent().getStringExtra("location");
+        if (location == null || location.trim().isEmpty()) {
+            location = "Not provided";
+        }
         boolean photoAttached = getIntent().getBooleanExtra("photoAttached", false);
 
         // Display initial report details
         statusText.setText("✅ Report Submitted!\n\n"
                 + "📌 Issue: " + issueType + "\n"
+                + "📍 Location: " + location + "\n"
                 + "📝 Description: " + description + "\n"
                 + (photoAttached ? "📷 Photo: Attached\n" : "📷 Photo: Not attached\n")
                 + "\n📊 Status: Pending");

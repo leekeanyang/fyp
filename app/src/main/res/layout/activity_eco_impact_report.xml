@@ -65,6 +65,39 @@
                 android:spinnerMode="dropdown"
                 android:background="@drawable/spinner_bg" />
 
+            <!-- Location -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#1B5E20"
+                android:paddingTop="16dp"
+                android:paddingBottom="6dp" />
+
+            <EditText
+                android:id="@+id/edit_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Add GPS or pin location"
+                android:inputType="text"
+                android:background="@drawable/input_bg"
+                android:padding="12dp"
+                android:textColor="#2C3E50"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_use_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📍 Use Current Location"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#66BB6A"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textColor="@android:color/white" />
+
             <!-- Description -->
             <TextView
                 android:layout_width="wrap_content"

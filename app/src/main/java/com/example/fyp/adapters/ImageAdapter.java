@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.fyp.R;
@@ -13,11 +14,13 @@ import java.util.List;
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
 
     private final List<String> imageNames; // names of drawables or vectors
+    private final List<String> captions;
     private final Context context;
 
-    public ImageAdapter(Context context, List<String> imageNames) {
+    public ImageAdapter(Context context, List<String> imageNames, List<String> captions) {
         this.context = context;
         this.imageNames = imageNames;
+        this.captions = captions;
     }
 
     @NonNull
@@ -40,6 +43,12 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             // Fallback placeholder if drawable not found
             holder.imageView.setImageResource(R.drawable.ic_placeholder);
         }
+
+        if (captions != null && captions.size() > position) {
+            holder.captionText.setText(captions.get(position));
+        } else {
+            holder.captionText.setText("");
+        }
     }
 
     @Override
@@ -49,9 +58,11 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
 
     static class ImageViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
+        TextView captionText;
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.image_view);
+            captionText = itemView.findViewById(R.id.caption_text);
         }
     }
 }

@@ -168,6 +168,117 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <!-- Collapsible Section: Sensitive Areas -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/sensitiveCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/sensitiveTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="⚠️ Sensitive Areas"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#2E7D32" />
+
+                <TextView
+                    android:id="@+id/sensitiveContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="• Core conservation zones are off-limits\n• No entry to restricted wildlife nesting sites\n• Stay on marked trails near Orang Asli settlements"
+                    android:textSize="15sp"
+                    android:textColor="#333"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Collapsible Section: Visitor Guidelines -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/guidelinesCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/guidelinesTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="✅ Visitor Guidelines"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#2E7D32" />
+
+                <TextView
+                    android:id="@+id/guidelinesContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="• No plastic allowed on trails and boat rides\n• Keep noise low to protect wildlife\n• Pack out all waste"
+                    android:textSize="15sp"
+                    android:textColor="#333"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Collapsible Section: Facilities -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/facilitiesCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/facilitiesTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="🏕️ Facilities"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#2E7D32" />
+
+                <TextView
+                    android:id="@+id/facilitiesContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="• Visitor center and ranger station\n• Eco-lodges and houseboats\n• Guided treks and permits counter"
+                    android:textSize="15sp"
+                    android:textColor="#333"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
         <!-- Button Row -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -191,6 +302,16 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#4E342E"
                 android:text="Learn More"
+                android:textColor="@android:color/white"
+                android:padding="12dp"
+                android:layout_marginStart="12dp"/>
+
+            <Button
+                android:id="@+id/viewGalleryBelumBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#1B5E20"
+                android:text="Gallery"
                 android:textColor="@android:color/white"
                 android:padding="12dp"
                 android:layout_marginStart="12dp"/>
