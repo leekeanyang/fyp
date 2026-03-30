@@ -1,14 +1,11 @@
 package com.example.fyp.auth;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-
-import com.example.fyp.activities.AdminDashboardActivity;
 import com.example.fyp.MainActivity;
+import com.example.fyp.activities.AdminDashboardActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;

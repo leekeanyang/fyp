@@ -3,6 +3,8 @@ package com.example.fyp.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.Objects;
+
 public class Tip implements Parcelable {
     private String id;
     private String title;
@@ -11,16 +13,16 @@ public class Tip implements Parcelable {
     private String category;
     private String imageUrl;
     private String site;
-    private boolean completed; // Track completion status
-    private static final String DEFAULT_IMAGE = "ic_eco_tip"; // Default image if null
+    private double co2Savings; // New field for numerical savings
+    private boolean completed;
+    private static final String DEFAULT_IMAGE = "ic_eco_tip";
 
-    // Default constructor
     public Tip() {
         this.completed = false;
     }
 
     public Tip(String id, String title, String text, String description,
-               String category, String imageUrl, String site) {
+               String category, String imageUrl, String site, double co2Savings) {
         this.id = id;
         this.title = title;
         this.text = text;
@@ -28,12 +30,14 @@ public class Tip implements Parcelable {
         this.category = category;
         this.imageUrl = imageUrl != null ? imageUrl : DEFAULT_IMAGE;
         this.site = site;
+        this.co2Savings = co2Savings;
         this.completed = false;
     }
 
-    // Overloaded constructor for minimal initialization
-    public Tip(String id, String title, String text, String category) {
-        this(id, title, text, null, category, null, null);
+    // Overloaded constructor for legacy support
+    public Tip(String id, String title, String text, String description,
+               String category, String imageUrl, String site) {
+        this(id, title, text, description, category, imageUrl, site, 0.0);
     }
 
     // Getters
@@ -44,8 +48,9 @@ public class Tip implements Parcelable {
     public String getCategory() { return category; }
     public String getImageUrl() { return imageUrl != null ? imageUrl : DEFAULT_IMAGE; }
     public String getSite() { return site != null ? site : ""; }
+    public double getCo2Savings() { return co2Savings; }
     public boolean isCompleted() { return completed; }
-    public String getLocation() { return getSite(); } // Alias for location compatibility
+    public String getLocation() { return getSite(); }
 
     // Setters
     public void setId(String id) { this.id = id; }
@@ -55,6 +60,7 @@ public class Tip implements Parcelable {
     public void setCategory(String category) { this.category = category; }
     public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl != null ? imageUrl : DEFAULT_IMAGE; }
     public void setSite(String site) { this.site = site; }
+    public void setCo2Savings(double co2Savings) { this.co2Savings = co2Savings; }
     public void setCompleted(boolean completed) { this.completed = completed; }
 
     @Override
@@ -62,10 +68,22 @@ public class Tip implements Parcelable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tip tip = (Tip) o;
-        return id != null && id.equals(tip.id);
+        return Double.compare(tip.co2Savings, co2Savings) == 0 &&
+                completed == tip.completed &&
+                Objects.equals(id, tip.id) &&
+                Objects.equals(title, tip.title) &&
+                Objects.equals(text, tip.text) &&
+                Objects.equals(description, tip.description) &&
+                Objects.equals(category, tip.category) &&
+                Objects.equals(imageUrl, tip.imageUrl) &&
+                Objects.equals(site, tip.site);
     }
 
-    // Parcelable implementation
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, text, description, category, imageUrl, site, co2Savings, completed);
+    }
+
     protected Tip(Parcel in) {
         id = in.readString();
         title = in.readString();
@@ -74,7 +92,8 @@ public class Tip implements Parcelable {
         category = in.readString();
         imageUrl = in.readString();
         site = in.readString();
-        completed = in.readByte() != 0; // Read boolean as byte
+        co2Savings = in.readDouble();
+        completed = in.readByte() != 0;
     }
 
     public static final Creator<Tip> CREATOR = new Creator<Tip>() {
@@ -103,20 +122,7 @@ public class Tip implements Parcelable {
         dest.writeString(category);
         dest.writeString(imageUrl);
         dest.writeString(site);
-        dest.writeByte((byte) (completed ? 1 : 0)); // Write boolean as byte
-    }
-
-    @Override
-    public String toString() {
-        return "Tip{" +
-                "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", text='" + text + '\'' +
-                ", description='" + description + '\'' +
-                ", category='" + category + '\'' +
-                ", imageUrl='" + imageUrl + '\'' +
-                ", site='" + site + '\'' +
-                ", completed=" + completed +
-                '}';
+        dest.writeDouble(co2Savings);
+        dest.writeByte((byte) (completed ? 1 : 0));
     }
 }

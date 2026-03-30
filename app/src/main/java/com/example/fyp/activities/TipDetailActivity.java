@@ -1,16 +1,11 @@
 package com.example.fyp.activities;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,13 +17,13 @@ import com.bumptech.glide.Glide;
 import com.example.fyp.R;
 import com.example.fyp.models.Tip;
 
+import java.util.Locale;
+
 public class TipDetailActivity extends AppCompatActivity {
 
-    private TextView title, description, site, errorMessage;
-    private ImageView image;
-    private Button shareButton, retryButton;
-    private ProgressBar progressBar;
-
+    private TextView title, description, site, txtCompleted;
+    private ImageView image, ivCheck;
+    private Button shareButton;
     private Tip tip;
 
     @Override
@@ -36,25 +31,10 @@ public class TipDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tip_detail);
 
-        // Setup toolbar with back button
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(R.string.tip_detail_title);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Enables back button
-        }
+        initViews();
+        setupToolbar();
 
-        // UI components
-        title = findViewById(R.id.detail_title);
-        description = findViewById(R.id.detail_description);
-        site = findViewById(R.id.detail_site);
-        image = findViewById(R.id.detail_image);
-        shareButton = findViewById(R.id.share_button);
-        retryButton = findViewById(R.id.retry_button);
-        progressBar = findViewById(R.id.progress_bar);
-        errorMessage = findViewById(R.id.error_message);
-
-        // Get Intent data
+        // Get Parcelable data
         tip = getIntent().getParcelableExtra("tip");
 
         if (tip != null) {
@@ -62,109 +42,81 @@ public class TipDetailActivity extends AppCompatActivity {
         } else {
             showErrorState();
         }
-
-        retryButton.setOnClickListener(v -> {
-            if (tip != null) {
-                populateUI(tip);
-            } else {
-                Toast.makeText(this, R.string.error_loading_tip, Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
-    private boolean isNetworkAvailable() {
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
-        return networkInfo != null && networkInfo.isConnected();
+    private void initViews() {
+        title = findViewById(R.id.detail_title);
+        description = findViewById(R.id.detail_description);
+        site = findViewById(R.id.detail_site);
+        image = findViewById(R.id.detail_image);
+        shareButton = findViewById(R.id.share_button);
+        txtCompleted = findViewById(R.id.txt_completed_status);
+        ivCheck = findViewById(R.id.iv_check_detail);
     }
 
-    private void showErrorState() {
-        errorMessage.setVisibility(View.VISIBLE);
-        retryButton.setVisibility(View.VISIBLE);
-
-        title.setVisibility(View.GONE);
-        description.setVisibility(View.GONE);
-        site.setVisibility(View.GONE);
-        image.setVisibility(View.GONE);
-        shareButton.setVisibility(View.GONE);
+    private void setupToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("Sustainability Tip");
+        }
     }
 
     private void populateUI(Tip tip) {
-        this.tip = tip;
-
-        title.setVisibility(View.VISIBLE);
-        description.setVisibility(View.VISIBLE);
-        shareButton.setVisibility(View.VISIBLE);
-        errorMessage.setVisibility(View.GONE);
-        retryButton.setVisibility(View.GONE);
-
         title.setText(tip.getTitle());
-        title.setContentDescription(tip.getTitle());
-
         description.setText(tip.getDescription());
-        description.setContentDescription(tip.getDescription());
 
-        // Handle image
-        if (!TextUtils.isEmpty(tip.getImageUrl())) {
-            int resId = getResources().getIdentifier(tip.getImageUrl(), "drawable", getPackageName());
-            if (resId != 0) {
-                Glide.with(this)
-                        .load(resId)
-                        .placeholder(R.drawable.placeholder_image)
-                        .error(R.drawable.placeholder_image)
-                        .into(image);
-                image.setVisibility(View.VISIBLE);
-                image.setContentDescription(getString(R.string.tip_image_description, tip.getTitle()));
-                image.setOnClickListener(v -> openFullScreenImage(tip.getImageUrl(), tip.getTitle()));
-            } else {
-                image.setVisibility(View.GONE);
-            }
-        } else {
-            image.setVisibility(View.GONE);
-        }
-
-        // Handle related site
+        // Show site if available
         if (!TextUtils.isEmpty(tip.getSite())) {
-            site.setText(tip.getSite());
+            site.setText(String.format("Location: %s", tip.getSite()));
             site.setVisibility(View.VISIBLE);
-            site.setContentDescription(getString(R.string.tip_site_description, tip.getSite()));
         } else {
             site.setVisibility(View.GONE);
         }
 
-        // Share button
+        // Handle Image loading with Glide
+        String imgName = tip.getImageUrl();
+        int resId = getResources().getIdentifier(imgName, "drawable", getPackageName());
+        Glide.with(this)
+                .load(resId != 0 ? resId : R.drawable.ic_eco_tip)
+                .placeholder(R.drawable.ic_eco_tip_placeholder)
+                .into(image);
+
+        // Completion Status
+        if (tip.isCompleted()) {
+            if (txtCompleted != null) txtCompleted.setVisibility(View.VISIBLE);
+            if (ivCheck != null) ivCheck.setVisibility(View.VISIBLE);
+        }
+
         shareButton.setOnClickListener(v -> shareTip(tip));
+        image.setOnClickListener(v -> openFullScreen(tip));
     }
 
-    private void openFullScreenImage(String imageName, String description) {
-        Intent intent = new Intent(this, FullScreenImageActivity.class);
-        intent.putExtra("image_url", imageName);
-        intent.putExtra("image_description", description + " image");
-
-        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                this, image, "image_transition");
-
-        startActivity(intent, options.toBundle());
+    private void showErrorState() {
+        Toast.makeText(this, "Error: Tip data not found", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     private void shareTip(Tip tip) {
-        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
+        String shareText = String.format(Locale.getDefault(), 
+            "Perak Ecotourism Tip: %s\n\n%s\n\nDownload the app to learn more!", 
+            tip.getTitle(), tip.getDescription());
+            
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, shareText);
+        startActivity(Intent.createChooser(intent, "Share Tip"));
+    }
 
-        StringBuilder shareText = new StringBuilder();
-        shareText.append(tip.getTitle()).append(": ").append(tip.getDescription());
-        if (!TextUtils.isEmpty(tip.getSite())) {
-            shareText.append(" (Related to: ").append(tip.getSite()).append(")");
-        }
-        shareText.append("\nLearn more at Perak Ecotourism App!");
-
-        shareIntent.putExtra(Intent.EXTRA_TEXT, shareText.toString());
-        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_tip)));
+    private void openFullScreen(Tip tip) {
+        // Implement transition if needed, or simple dialog
+        Toast.makeText(this, "Opening full screen view...", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public boolean onSupportNavigateUp() {
-        finish();
+        onBackPressed();
         return true;
     }
 }

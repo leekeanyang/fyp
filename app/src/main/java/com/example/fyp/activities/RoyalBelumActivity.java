@@ -24,6 +24,7 @@ public class RoyalBelumActivity extends AppCompatActivity {
         // Buttons
         Button viewOnMapBtn = findViewById(R.id.viewOnMapBelumBtn);
         Button learnMoreBtn = findViewById(R.id.learnMoreBelumBtn);
+        Button viewGalleryBtn = findViewById(R.id.viewGalleryBelumBtn);
 
         viewOnMapBtn.setOnClickListener(v -> {
             String mapUrl = "https://www.google.com/maps?q=Royal+Belum+State+Park";
@@ -38,10 +39,19 @@ public class RoyalBelumActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        viewGalleryBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(RoyalBelumActivity.this, GalleryActivity.class);
+            intent.putExtra(GalleryActivity.EXTRA_SITE, GalleryActivity.SITE_ROYAL_BELUM);
+            startActivity(intent);
+        });
+
         // Collapsible Sections
         setupCollapsible(R.id.activitiesTitle, R.id.activitiesContent);
         setupCollapsible(R.id.wildlifeTitle, R.id.wildlifeContent);
         setupCollapsible(R.id.staysTitle, R.id.staysContent);
+        setupCollapsible(R.id.sensitiveTitle, R.id.sensitiveContent);
+        setupCollapsible(R.id.guidelinesTitle, R.id.guidelinesContent);
+        setupCollapsible(R.id.facilitiesTitle, R.id.facilitiesContent);
     }
 
     private void setupCollapsible(int titleId, int contentId) {

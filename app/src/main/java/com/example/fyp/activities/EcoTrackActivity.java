@@ -32,6 +32,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.fyp.R;
 import com.example.fyp.models.CarbonFootprint;
+import com.example.fyp.repositories.SiteCatalog;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
@@ -55,11 +56,12 @@ public class EcoTrackActivity extends AppCompatActivity {
     private static final String KEY_SAVED_CO2 = "saved_co2_";
     private static final String KEY_SAVED_COUNT = "saved_count";
     private static final String KEY_TOTAL_REDUCTION = "total_reduction";
+    private static final String TRIP_PREFS = "TripPlannerPrefs";
 
     private TextInputLayout distanceLayout, nightsLayout;
     private TextInputEditText distance, nights;
     private Spinner transportMode, accommodationType, mealPreference;
-    private TextView result, ecoTips, toggleTips, reductionLabel;
+    private TextView result, ecoTips, toggleTips, reductionLabel, plannerSummary;
     private MaterialButton calculate, reset, toggleHistory;
     private MaterialCardView resultCard;
     private CircularProgressIndicator loadingIndicator;
@@ -72,6 +74,7 @@ public class EcoTrackActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> voiceLauncher;
     private boolean showingHistory = false, showingTips = false, showingContributions = true;
     private double totalReduction = 0.0;
+    private String selectedSiteName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +108,7 @@ public class EcoTrackActivity extends AppCompatActivity {
         loadingIndicator = findViewById(R.id.loading_indicator);
         reductionProgress = findViewById(R.id.reduction_progress);
         reductionLabel = findViewById(R.id.reduction_label);
+        plannerSummary = findViewById(R.id.planner_summary);
 
         // Progress bars and icons
         transportBar = findViewById(R.id.progress_transport);
@@ -132,6 +136,7 @@ public class EcoTrackActivity extends AppCompatActivity {
         toggleHistory.setVisibility(View.GONE);
         toggleTips.setVisibility(View.GONE);
         updateReductionProgress();
+        loadPlannerContext();
 
         // Button listeners
         calculate.setOnClickListener(v -> {
@@ -295,6 +300,35 @@ public class EcoTrackActivity extends AppCompatActivity {
         }, 1000);
     }
 
+    private void loadPlannerContext() {
+        SharedPreferences tripPrefs = getSharedPreferences(TRIP_PREFS, MODE_PRIVATE);
+        selectedSiteName = getIntent().getStringExtra("siteName");
+        if (selectedSiteName == null || selectedSiteName.trim().isEmpty()) {
+            selectedSiteName = tripPrefs.getString("selected_site_name", "");
+        }
+
+        String itineraryPlan = getIntent().getStringExtra("itineraryPlan");
+        if (itineraryPlan == null || itineraryPlan.trim().isEmpty()) {
+            itineraryPlan = tripPrefs.getString("itinerary_plan", "");
+        }
+
+        float routeDistanceKm = getIntent().getFloatExtra("routeDistanceKm", -1f);
+        if (routeDistanceKm < 0f) {
+            routeDistanceKm = tripPrefs.getFloat("route_distance_km", -1f);
+        }
+
+        if (routeDistanceKm > 0f && distance.getText() != null && distance.getText().toString().trim().isEmpty()) {
+            distance.setText(String.format(Locale.getDefault(), "%.1f", routeDistanceKm));
+        }
+
+        if (!selectedSiteName.isEmpty() || !itineraryPlan.isEmpty()) {
+            String summary = selectedSiteName.isEmpty()
+                    ? itineraryPlan
+                    : "Linked itinerary for " + selectedSiteName + ":\n" + itineraryPlan;
+            plannerSummary.setText(summary);
+        }
+    }
+
     private void highlightHighestContributor(double transportCO2, double accommodationCO2, double mealCO2, double totalCO2) {
         if (totalCO2 == 0) return;
 
@@ -392,6 +426,13 @@ public class EcoTrackActivity extends AppCompatActivity {
         if (isRainy) {
             tips.append("- Rainy at 03:19 AM: Rest indoors or plan for later.\n");
             hasTip = true;
+        }
+        if (!selectedSiteName.isEmpty()) {
+            SiteCatalog.SiteMeta siteMeta = SiteCatalog.getSiteMetaByName(selectedSiteName);
+            if (siteMeta != null) {
+                tips.append("- ").append(siteMeta.getEcoTrackAdvice()).append("\n");
+                hasTip = true;
+            }
         }
         String challenge = getChallengeOfDay();
         if (!challenge.isEmpty()) {

@@ -63,8 +63,8 @@ public class SplashActivity extends AppCompatActivity {
         // Navigate after 2 seconds
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             FirebaseUser currentUser = mAuth.getCurrentUser();
-            SharedPreferences prefs = getSharedPreferences("EcoTourismPrefs", MODE_PRIVATE);
-            boolean rememberMe = prefs.getBoolean("rememberMe", true);
+            SharedPreferences prefs = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+            boolean rememberMe = prefs.getBoolean("remember_me", false);
 
             Intent intent = (currentUser != null && rememberMe)
                     ? new Intent(SplashActivity.this, MainActivity.class)

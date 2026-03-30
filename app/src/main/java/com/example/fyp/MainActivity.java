@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,12 +16,18 @@ import com.example.fyp.activities.InteractiveMapActivity;
 import com.example.fyp.activities.SustainabilityTipsActivity;
 import com.example.fyp.activities.VisitorCheckInActivity;
 import com.example.fyp.auth.LoginActivity;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView welcomeText;
+    private TextView welcomeText, txtTotalReduction;
     private Button btnExploreSites, btnTravelTips, btnMap, btnImpactReport,
             btnCheckIn, btnCarbonFootprint, btnLogout;
+
+    private static final String PREFS_NAME = "EcoTrackPrefs";
+    private static final String KEY_TOTAL_REDUCTION = "total_reduction";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         // --- Link UI elements ---
         welcomeText = findViewById(R.id.txtWelcome);
+        txtTotalReduction = findViewById(R.id.txtTotalReduction);
         btnExploreSites = findViewById(R.id.btnExploreSites);
         btnTravelTips = findViewById(R.id.btnTravelTips);
         btnMap = findViewById(R.id.btnMap);
@@ -81,10 +89,29 @@ public class MainActivity extends AppCompatActivity {
 
         // --- Logout handling ---
         btnLogout.setOnClickListener(v -> {
+            getSharedPreferences("loginPrefs", MODE_PRIVATE)
+                    .edit()
+                    .putBoolean("remember_me", false)
+                    .apply();
+            FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
-            finish(); // close MainActivity so user can’t go back with back button
+            finish(); 
         });
+        
+        updateEcoScore();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateEcoScore();
+    }
+
+    private void updateEcoScore() {
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        float totalReduction = prefs.getFloat(KEY_TOTAL_REDUCTION, 0.0f);
+        txtTotalReduction.setText(String.format(Locale.getDefault(), "%.2f kg", totalReduction));
     }
 }

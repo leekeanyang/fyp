@@ -1,5 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background Layer (Gradient for rainy morning ambiance) -->
     <item>
-        <color android:color="#FFFFFF" />
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#1A3C34"
+            android:centerColor="#2E7D32"
+            android:endColor="#4CAF50"
+            android:angle="90" />
+            <corners android:radius="0dp" />
+        </shape>
     </item>
-</layer-list>
+
+    <!-- Optional Center Logo or Icon (if you have one) -->
+    <item
+        android:drawable="@drawable/ic_logo"
+    android:gravity="center">
+</item>
+
+    </layer-list>

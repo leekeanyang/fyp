@@ -79,6 +79,7 @@ dependencies {
     implementation libs.google.material
     implementation libs.ar.core
     implementation libs.swiperefreshlayout
+    implementation libs.firebase.messaging
     annotationProcessor libs.compiler.v4160
     implementation libs.viewpager2.v100
     testImplementation libs.junit
@@ -123,6 +124,7 @@ dependencies {
     implementation libs.guava.v3101android
     implementation libs.reactive.streams
     implementation libs.okhttp
-
+    implementation libs.swiperefreshlayout
+    implementation libs.coordinatorlayout
 }
 

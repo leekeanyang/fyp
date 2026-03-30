@@ -152,6 +152,20 @@
         android:clickable="true"
         android:focusable="true" />
 
+    <!-- Admin Login Link -->
+    <TextView
+        android:id="@+id/tvAdminLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin Login"
+        android:textColor="#2E7D32"
+    android:layout_marginTop="8dp"
+    app:layout_constraintTop_toBottomOf="@id/tvRegisterLink"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:clickable="true"
+    android:focusable="true" />
+
     <!-- Progress Bar (Overlay) -->
     <ProgressBar
         android:id="@+id/loginProgress"
@@ -163,5 +177,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

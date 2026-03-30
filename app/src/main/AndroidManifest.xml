@@ -65,11 +65,22 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activities.AdminLoginActivity"
+            android:exported="false">
+            <!-- intent-filter if needed -->
+        </activity>
+        <activity
+            android:name=".activities.AdminDashboardActivity"
+        android:exported="false">
+            <!-- Add intent-filter if this activity needs to be launched by implicit intents -->
+        </activity>
+
         <!-- Other Activities -->
         <activity android:name=".MainActivity" />
         <activity
             android:name=".auth.LoginActivity"
-            android:exported="true" /> <!-- Removed duplicate LAUNCHER intent-filter -->
+            android:exported="true" />
         <activity
             android:name=".auth.RegisterActivity"
             android:exported="false" />
@@ -130,6 +141,7 @@
             android:exported="false"
             android:theme="@style/AppTheme" />
         <activity android:name=".activities.ReportStatusActivity" />
+        <activity android:name=".activities.ResolveReportActivity" />
 
         <!-- Visitor Check-In Activity -->
         <activity
@@ -153,6 +165,11 @@
                 android:name="android.transition"
                 android:value="shared_element" />
         </activity>
+
+        <activity
+            android:name=".activities.GalleryActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
 
         <activity
             android:name=".activities.ReportIssueActivity"

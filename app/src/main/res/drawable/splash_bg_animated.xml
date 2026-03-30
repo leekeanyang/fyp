@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+
+    <!-- Background rectangle with animated gradient -->
+    <aapt:attr name="android:drawable">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="@color/eco_green"
+                android:endColor="@color/eco_green_dark"
+                android:angle="45"/>
+        </shape>
+    </aapt:attr>
+</animated-vector>

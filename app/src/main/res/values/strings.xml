@@ -236,4 +236,9 @@
     <string name="invalid_selection">Invalid selection for %s</string>
     <string name="voice_prompt_for_spinner">Say a %s value (e.g., \'bus\' for transport)...</string>
 
+    <string-array name="report_statuses">
+        <item>Submitted</item>
+        <item>Reviewed</item>
+        <item>Resolved</item>
+    </string-array>
 </resources>

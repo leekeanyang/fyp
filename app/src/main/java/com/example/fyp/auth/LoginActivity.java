@@ -1,5 +1,6 @@
 package com.example.fyp.auth;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -25,6 +26,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.fyp.MainActivity;
 import com.example.fyp.R;
+import com.example.fyp.activities.AdminLoginActivity; // Import AdminLoginActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -77,8 +79,8 @@ public class LoginActivity extends AppCompatActivity {
         String savedEmail = prefs.getString("email", null);
         if (savedEmail != null) {
             emailInput.setText(savedEmail);
-            rememberMeCheckBox.setChecked(true);
         }
+        rememberMeCheckBox.setChecked(prefs.getBoolean("remember_me", savedEmail != null));
 
         // Real-time validation
         TextWatcher validator = new TextWatcher() {
@@ -100,6 +102,11 @@ public class LoginActivity extends AppCompatActivity {
         TextView tvForgotPassword = findViewById(R.id.tvForgotPassword);
         tvForgotPassword.setOnClickListener(v ->
                 startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class)));
+
+        // Add Admin Login link
+        TextView tvAdminLogin = findViewById(R.id.tvAdminLogin); // Reference the new TextView
+        tvAdminLogin.setOnClickListener(v ->
+                startActivity(new Intent(LoginActivity.this, AdminLoginActivity.class)));
 
         // Buttons
         btnLogin.setOnClickListener(v -> performLogin());
@@ -157,6 +164,7 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             prefs.edit().remove("email").apply();
                         }
+                        prefs.edit().putBoolean("remember_me", rememberMeCheckBox.isChecked()).apply();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         finish();
                     } else {
@@ -250,6 +258,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         // Enable biometric login and save flag
                         prefs.edit().putBoolean("biometric_enabled", true).apply();
+                        prefs.edit().putBoolean("remember_me", true).apply();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         finish();
                     } else {

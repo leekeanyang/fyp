@@ -1,39 +1,44 @@
 package com.example.fyp.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fyp.R;
+import com.example.fyp.adapters.SiteAdapter;
+import com.example.fyp.models.Site;
+import com.example.fyp.repositories.SiteCatalog;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DestinationGuideActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private SiteAdapter adapter;
+    private List<Site> siteList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_destination_guide);
 
-        // Royal Belum
-        CardView royalBelum = findViewById(R.id.royalBelumCard);
-        royalBelum.setOnClickListener(v -> {
-            Intent intent = new Intent(DestinationGuideActivity.this, RoyalBelumActivity.class);
-            startActivity(intent);
-        });
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("Destination Guide");
+        }
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
-        // Gua Tempurung
-        CardView guaTempurung = findViewById(R.id.guaTempurungCard);
-        guaTempurung.setOnClickListener(v -> {
-            Intent intent = new Intent(DestinationGuideActivity.this, GuaTempurungActivity.class);
-            startActivity(intent);
-        });
+        recyclerView = findViewById(R.id.recyclerViewDestinations);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Kuala Sepetang
-        CardView kualaSepetang = findViewById(R.id.kualaSepetangCard);
-        kualaSepetang.setOnClickListener(v -> {
-            Intent intent = new Intent(DestinationGuideActivity.this, KualaSepetangActivity.class);
-            startActivity(intent);
-        });
+        siteList = new ArrayList<>(SiteCatalog.getGuideSites());
+        adapter = new SiteAdapter(this, siteList);
+        recyclerView.setAdapter(adapter);
     }
 }

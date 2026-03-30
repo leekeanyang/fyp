@@ -56,10 +56,16 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
+                    <Spinner
+                        android:id="@+id/spinnerSite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnCheckInQR"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
                         android:text="Scan QR Code"
                         android:textAllCaps="false"
                         android:textSize="16sp"
@@ -99,6 +105,21 @@
                         app:iconGravity="textStart"
                         app:iconPadding="10dp"
                         app:cornerRadius="30dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnShowSiteQr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Show Demo Site QR"
+                        android:textAllCaps="false"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/white"
+                        app:backgroundTint="@color/eco_blue"
+                        android:layout_marginTop="16dp"
+                        app:icon="@drawable/ic_qr_code"
+                        app:iconGravity="textStart"
+                        app:iconPadding="10dp"
+                        app:cornerRadius="30dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -121,6 +142,61 @@
                     android:textColor="@android:color/black"
                     android:padding="20dp"
                     android:gravity="center" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Eco-Capacity Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardCapacity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/txtCapacityLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Eco-Capacity: Low"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#2E7D32" />
+
+                    <TextView
+                        android:id="@+id/txtCapacityCount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Visitors today: 0/100"
+                        android:textSize="14sp"
+                        android:textColor="#455A64"
+                        android:paddingTop="6dp" />
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progress_capacity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:max="100"
+                        app:indicatorColor="@color/green"
+                        app:trackColor="#C8E6C9"
+                        app:trackThickness="6dp" />
+
+                    <TextView
+                        android:id="@+id/txtCapacityHint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Plenty of space. Enjoy your visit!"
+                        android:textSize="14sp"
+                        android:textColor="#455A64"
+                        android:paddingTop="10dp" />
+                </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

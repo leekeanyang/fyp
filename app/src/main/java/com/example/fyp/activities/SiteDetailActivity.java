@@ -12,11 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.fyp.R;
 import com.example.fyp.models.Site;
 
+import java.util.Locale;
+
 public class SiteDetailActivity extends AppCompatActivity {
 
-    ImageView imgDetail;
-    TextView txtTitle, txtLongDesc;
-    Button btnOpenMap, btnReportIssue;
+    private ImageView imgDetail;
+    private TextView txtTitle, txtLongDesc, txtHighlights, txtGuidelines, txtWarnings;
+    private Button btnOpenMap, btnReportIssue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,9 @@ public class SiteDetailActivity extends AppCompatActivity {
         imgDetail = findViewById(R.id.imgDetail);
         txtTitle = findViewById(R.id.txtTitle);
         txtLongDesc = findViewById(R.id.txtLongDesc);
+        txtHighlights = findViewById(R.id.txtHighlights);
+        txtGuidelines = findViewById(R.id.txtGuidelines);
+        txtWarnings = findViewById(R.id.txtWarnings);
         btnOpenMap = findViewById(R.id.btnOpenMap);
         btnReportIssue = findViewById(R.id.btnReportIssue);
 
@@ -33,23 +38,24 @@ public class SiteDetailActivity extends AppCompatActivity {
         if (site != null) {
             imgDetail.setImageResource(site.getImageResId());
             txtTitle.setText(site.getName());
-            txtLongDesc.setText(site.getLongDesc());
+            txtLongDesc.setText(site.getLongDescription());
+            txtHighlights.setText(site.getHighlights());
+            txtGuidelines.setText(site.getGuidelines());
+            txtWarnings.setText(site.getWarnings());
 
             btnOpenMap.setOnClickListener(v -> {
-                // Open external maps app or your internal map activity
-                String uri = "geo:" + site.getLat() + "," + site.getLng() + "?q=" + Uri.encode(site.getName());
+                String uri = String.format(Locale.getDefault(), "geo:%f,%f?q=%s", 
+                        site.getLat(), site.getLng(), Uri.encode(site.getName()));
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
                 mapIntent.setPackage("com.google.android.apps.maps");
                 if (mapIntent.resolveActivity(getPackageManager()) != null) {
                     startActivity(mapIntent);
                 } else {
-                    // fallback to generic geo intent
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(uri)));
                 }
             });
 
             btnReportIssue.setOnClickListener(v -> {
-                // Launch your EcoReportActivity and optionally prefill location/site
                 Intent i = new Intent(this, EcoImpactReportActivity.class);
                 i.putExtra("siteName", site.getName());
                 i.putExtra("lat", site.getLat());
@@ -59,4 +65,3 @@ public class SiteDetailActivity extends AppCompatActivity {
         }
     }
 }
-

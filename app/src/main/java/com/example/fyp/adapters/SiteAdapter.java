@@ -1,6 +1,7 @@
 package com.example.fyp.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fyp.R;
+import com.example.fyp.activities.SiteDetailActivity;
 import com.example.fyp.models.Site;
 
 import java.util.List;
@@ -36,8 +38,14 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.SiteViewHolder
     public void onBindViewHolder(@NonNull SiteViewHolder holder, int position) {
         Site site = siteList.get(position);
         holder.siteName.setText(site.getName());
-        holder.siteDesc.setText(site.getDescription());
+        holder.siteDesc.setText(site.getShortDescription());
         holder.siteImage.setImageResource(site.getImageResId());
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, SiteDetailActivity.class);
+            intent.putExtra("site", site);
+            context.startActivity(intent);
+        });
     }
 
     @Override
